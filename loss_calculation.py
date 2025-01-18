@@ -213,7 +213,7 @@ def save_results_to_csv(results, output_path):
 
 def main():
     # Specify the path to your image folder
-    folder_path = "/Users/sejaljadhav/Documents/CV Projects/Folder1"
+    folder_path = "/Users/sejaljadhav/Documents/CV/Canonical-Image-Compression/Folder1"
     
     # Optional: Specify CSV output path
     output_csv = "/Users/sejaljadhav/Documents/CV Projects/compression_analysis.csv"
