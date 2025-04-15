@@ -927,7 +927,7 @@ def main():
     # Set default parameters
     image_path = "/home/sejal/Documents/CV Project/Canonical-Image-Compression/Folder1/0000.jpg"  # Change this to your image path
     quality = 50  # Default quality
-    scan_method = 'zigzag'  # Default scanning method
+    scan_method = 'horizontal'  # Default scanning method 'zigzag' 
     chroma_subsampling = '420'  # Default chroma subsampling
     output_dir = "output"
     
@@ -974,3 +974,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+# 30-50 dB: Excellent quality, differences barely perceptible
+# 25-30 dB: Good quality with minor visible artifacts
+# 20-25 dB: Acceptable quality with noticeable degradation
+# Below 20 dB: Poor quality with significant visible artifacts
