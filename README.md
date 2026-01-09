@@ -72,7 +72,3 @@ Machine Learning • Computer Vision • Deep Learning • JPEG Compression • 
 ## Author
 
 **Sejal** - [@sejal-prog](https://github.com/sejal-prog)
-
-## License
-
-MIT License
