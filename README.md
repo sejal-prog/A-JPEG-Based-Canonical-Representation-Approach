@@ -66,28 +66,6 @@ For full implementation (from report):
 
 ---
 
-## ⏱️ Implementation Estimates
-
-### From Scratch (Current Repo → Full System)
-| Component | Time |
-|-----------|------|
-| VQGAN+DINO Tokenizer | 3-4 days |
-| Autoregressive Transformer | 2-3 days |
-| Training Pipeline + Metrics | 2-3 days |
-| **Total** | **7-10 days** |
-
-### Training Time (to Reproduce Results)
-| Stage | GPU Time |
-|-------|----------|
-| Tokenizer (per config) | 2-3 days |
-| Transformer (per config) | 1-2 days |
-| Full 4 configs | 5-7 days |
-| **Total** | **8-12 days** |
-
-*Assumes: PyTorch expertise, single V100/A100 GPU, BDD100K access*
-
----
-
 ## 📊 Results Summary
 
 | Method | Embedding | FID ↓ | rFID ↓ |
@@ -117,9 +95,6 @@ For full implementation (from report):
 ## 📧 Contact
 
 **Sejal Jadhav**  
-Matriculation: 5777879  
-Email: [your-email@students.uni-freiburg.de]
-
 **Supervisor:** Arian Mousakhan  
 **Examiner:** Prof. Dr. Thomas Brox
 
