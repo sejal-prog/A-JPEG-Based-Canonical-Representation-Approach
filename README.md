@@ -1,74 +1,138 @@
-# A JPEG Based Canonical Representation Approach
+# How High-Frequency Image Components Affect Generation Quality
+## A JPEG-Based Canonical Representation Approach
 
-A Python toolkit for analyzing JPEG image compression, extracting DCT coefficients, and studying Huffman coding and quantization.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## Overview
+> Master's Project at Albert-Ludwigs-Universität Freiburg  
+> Computer Vision Group | Supervised by Arian Mousakhan
 
-This project provides tools to parse JPEG internals and analyze compression behavior. Useful for research in computer vision, image compression, and machine learning applications.
+---
 
-## Features
+## 📋 Overview
 
-- Extract DCT coefficients from JPEG images
-- Parse and manipulate Huffman coding tables
-- Analyze quantization and compression quality
-- Calculate compression loss metrics (MSE, PSNR, SSIM)
-- Export codebooks and analysis results to CSV/JSON
+This research investigates how high-frequency image components impact generation quality in two-stage generative models (VQGANs). By replacing learned tokenizers with deterministic JPEG compression, we demonstrate that aggressive frequency removal maintains generation performance despite reconstruction degradation.
 
-## Project Structure
+### Key Findings
+- **FID Scores:** QF=20 (42.78) vs QF=40 (43.96) vs Baseline (43.92)
+- **Stable Generation:** High-frequency loss doesn't degrade semantic understanding
+- **Training Stability:** JPEG preprocessing eliminates codebook collapse
+
+---
+
+## ⚠️ Code Availability
+
+**The complete implementation is not publicly available** due to:
+- Proprietary research agreements
+- Institutional privacy policies
+
+This repository contains **preliminary JPEG compression utilities only**.
+
+---
+
+## 📦 Available Components
 
 ```
-├── DCT_JPG.py              # DCT extraction and transformation
-├── compression.py          # Compression and quantization
-├── huffman_parser.py       # Parse Huffman tables
-├── huffmancode.py          # Huffman encoding/decoding
-├── quant.py                # Quantization operations
-├── loss_calculation.py     # Loss metrics calculation
-├── script.py               # Main execution script
-└── *.csv, *.json           # Data files and codebooks
+├── DCT_JPG.py              # JPEG DCT compression
+├── compression.py          # Compression pipeline
+├── huffman_parser.py       # Huffman coding utilities
+├── quant.py                # Quantization analysis
+└── output/                 # Sample outputs
 ```
 
-## Installation
+---
+
+The report includes:
+- Complete methodology
+- VQGAN+DINO architecture details
+- Transformer training procedures
+- Comprehensive experimental results
+- Visual comparisons
+
+---
+
+## 🛠️ Requirements
 
 ```bash
-git clone https://github.com/sejal-prog/A-JPEG-Based-Canonical-Representation-Approach.git
-cd A-JPEG-Based-Canonical-Representation-Approach
-pip install numpy pillow matplotlib
+pip install numpy opencv-python pillow
 ```
 
-## Usage
+For full implementation (from report):
+- PyTorch 2.0+
+- timm (Vision Transformer)
+- LPIPS, FID metrics
+- BDD100K dataset
 
-Run the main script:
-```bash
-python script.py
+---
+
+## ⏱️ Implementation Estimates
+
+### From Scratch (Current Repo → Full System)
+| Component | Time |
+|-----------|------|
+| VQGAN+DINO Tokenizer | 3-4 days |
+| Autoregressive Transformer | 2-3 days |
+| Training Pipeline + Metrics | 2-3 days |
+| **Total** | **7-10 days** |
+
+### Training Time (to Reproduce Results)
+| Stage | GPU Time |
+|-------|----------|
+| Tokenizer (per config) | 2-3 days |
+| Transformer (per config) | 1-2 days |
+| Full 4 configs | 5-7 days |
+| **Total** | **8-12 days** |
+
+*Assumes: PyTorch expertise, single V100/A100 GPU, BDD100K access*
+
+---
+
+## 📊 Results Summary
+
+| Method | Embedding | FID ↓ | rFID ↓ |
+|--------|-----------|-------|--------|
+| VQGAN | 32-dim | 40.66 | 20.53 |
+| VQGAN | 16-dim | **43.92** | **19.62** |
+| JPEG (QF=40) | 16-dim | 43.96 | 21.85 |
+| JPEG (QF=20) | 16-dim | **42.78** | 21.92 |
+
+---
+
+## 🎓 Citation
+
+```bibtex
+@mastersthesis{jadhav2025jpeg,
+  title={How High-Frequency Image Components Affect Generation Quality: 
+         A JPEG-Based Canonical Representation Approach},
+  author={Jadhav, Sejal},
+  year={2025},
+  school={Albert-Ludwigs-Universit{\"a}t Freiburg},
+  type={Master's Project}
+}
 ```
 
-Or use individual modules:
-```python
-from DCT_JPG import extract_dct_coefficients
-from compression import quantize
-from loss_calculation import calculate_psnr
+---
 
-# Extract DCT coefficients
-coefficients = extract_dct_coefficients('image.jpg')
+## 📧 Contact
 
-# Apply quantization
-quantized = quantize(coefficients, quality_factor=75)
+**Sejal Jadhav**  
+Matriculation: 5777879  
+Email: [your-email@students.uni-freiburg.de]
 
-# Calculate quality metric
-psnr = calculate_psnr(original, quantized)
-```
+**Supervisor:** Arian Mousakhan  
+**Examiner:** Prof. Dr. Thomas Brox
 
-## Requirements
+---
 
-- Python 3.7+
-- numpy
-- Pillow
-- matplotlib
+## 🔗 Related Work
 
-## Topics
+- [VQGAN Paper](https://arxiv.org/abs/2012.09841) - Esser et al., 2021
+- [DINO](https://arxiv.org/abs/2104.14294) - Caron et al., 2021
+- [BDD100K Dataset](https://www.bdd100k.com/)
 
-Machine Learning • Computer Vision • Deep Learning • JPEG Compression • VQGAN-VAE
+---
 
-## Author
-
-**Sejal** - [@sejal-prog](https://github.com/sejal-prog)
+<p align="center">
+  <i>Computer Vision Group | University of Freiburg</i>
+</p>
