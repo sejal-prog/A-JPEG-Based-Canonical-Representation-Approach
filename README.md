@@ -42,7 +42,7 @@ This repository contains **preliminary JPEG compression utilities only**.
 ```
 
 ---
-
+Report - https://drive.google.com/file/d/11o6W0CFiWkaqf2uq4OGQDJObHr4CbU_n/view?usp=sharing
 The report includes:
 - Complete methodology
 - VQGAN+DINO architecture details
