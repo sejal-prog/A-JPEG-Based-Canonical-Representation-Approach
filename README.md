@@ -28,6 +28,7 @@ This research investigates how high-frequency image components impact generation
 - Institutional privacy policies
 
 This repository contains **preliminary JPEG compression utilities only**.
+But you can find architecture details in report attached below. 
 
 ---
 
